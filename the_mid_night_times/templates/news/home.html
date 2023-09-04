@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEWS</title>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f4f4f4;
+          margin: 0;
+          padding: 0;
+      }
+      
+      .container {
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 20px;
+          background-color: #fff;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      
+      .news-item {
+          margin-bottom: 20px;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          background-color: #fff;
+      }
+      
+      .news-title {
+          font-size: 20px;
+          font-weight: bold;
+      }
+      .news-description {
+        font-size: 16px;
+        margin-top: 10px;
+    }
+    
+    .read-button {
+        display: block;
+        text-align: center;
+        background-color: #007bff;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        text-decoration: none;
+        margin-top: 10px;
+    }
+    
+    .news-author,
+    .news-published {
+        font-size: 14px;
+        color: #888;
+        margin-top: 5px;
+    }
+</style>
+      
+
+</head>
+<body>
+    <form  method="GET" action="{% url 'news' %}">
+        <label>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+            <title>search</title>
+            <path
+              d="M32 30.586l-10.845-10.845c1.771-2.092 2.845-4.791 2.845-7.741 0-6.617-5.383-12-12-12s-12 5.383-12 12c0 6.617 5.383 12 12 12 2.949 0 5.649-1.074 7.741-2.845l10.845 10.845 1.414-1.414zM12 22c-5.514 0-10-4.486-10-10s4.486-10 10-10c5.514 0 10 4.486 10 10s-4.486 10-10 10z"
+            ></path>
+          </svg>
+          <input name="q" placeholder="Search for News..." value = {{value}} >
+          <input type="submit" value="Refresh" />
+        </label>
+      </form>
+      <a href={% url 'logout' %}> Logout </a>
+      {% if messages %}
+        <ul class="list-unstyled">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+      <div class="container">
+        {% for i in news %}
+        <div class="news-item">
+            <p class="news-title">{{ i.title }}</p>
+            <p class="news-description">{{ i.description }}</p>
+            <a href="{{ i.url }}" class="read-button" target="_blank">Read Full Story</a>
+            <p class="news-author">Author: {{ i.author }}</p>
+            <p class="news-published">Published At: {{ i.published_at }}</p>
+        </div>
+        {% endfor %}
+    <p>
+    <a href="{% url 'history' %}" class="button" >Read Your history Searches</a>
+    </p>
+    <p>
+    <a href="{% url 'admin_dashboard' %}" class="button" >See Admin Dashboard</a>
+    </p>
+
+
+    <h1> THE END</h1>
+</body>
+</html>
