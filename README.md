@@ -18,5 +18,9 @@ To Run this project:-
 
 # ScreenShots 
 1.Home Page![home](https://github.com/sshubham07/the-midnight-times/assets/51732065/36f2c1c1-e014-43f1-a02d-1caf88514576) 
-2.History Search of a user![history](https://github.com/sshubham07/the-midnight-times/assets/51732065/42aafdb8-7f81-47f0-98e4-0c7c796b1eae)
+2.History Search of a user![history](https://github.com/sshubham07/the-midnight-times/assets/51732065/42aafdb8-7f81-47f0-98e4-0c7c796b1eae) 
+3. Dashboard of word Count![dashboard](https://github.com/sshubham07/the-midnight-times/assets/51732065/375ef5ca-041d-46c8-bf2d-89d91b6c06b5) 
+4. Admin can block any user![blocking](https://github.com/sshubham07/the-midnight-times/assets/51732065/a638151a-bdea-4442-8a0f-f6e2b6ce3414)
+
+
 
