@@ -75,8 +75,15 @@ def news(request):
         url = f"http://api.mediastack.com/v1/news?access_key=82c1ab2cd5a7db2c4839b65e67464e7a&keywords={q}"
 
         make_history(request.user,q)
-        response = requests.get(url).json()
+        response = requests.get(url)
         print(f'RESPONSE==={response}')
+        if(response.status_code != 200):
+            messages.error(request,f"Could not get News, try after sometime later. Response status code :{response.status_code} ")
+            context ={'news':{},'value':'','last_search':True}
+            return render(request, 'news/home.html',context)
+
+        response = response.json()
+        print(f'RESPONSSE ==={response}')
         if(response.get('data') is None):
             messages.error(request,f"Could Not Find News on {q}")
             context = {'news' : {},'value':q,'last_search':True}
